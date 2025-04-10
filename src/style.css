@@ -5,7 +5,7 @@ body {
   font-family: "Raleway", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(43, 32, 65), rgb(20, 15, 35));
+  background-image: linear-gradient(to left, rgb(27, 20, 41), rgb(20, 15, 35));
 }
 
 #tsparticles {
@@ -42,10 +42,34 @@ body {
 }
 
 .heading {
-  font-size: 2.5em;
+  font-size: 2.7em;
   font-weight: bold;
   color: white;
 }
+
+.button-wrapper {
+  margin-top: 40px;
+}
+
+.custom-button {
+  padding: 12px 24px;
+  margin-right: 15px;
+  border: 2px solid #6c63ff; 
+  border-radius: 30px; 
+  background: transparent;
+  color: #6c63ff; 
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.custom-button:hover {
+  background: #6c63ff;
+  color: #fff;
+  text-decoration: none;
+}
+
 
 .main-name {
   color: #c770f0;
@@ -67,7 +91,7 @@ body {
 }
 
 .typing-text {
-  font-size: 1.8em;
+  font-size: 2.5em;
   font-weight: bold;
   color: #c770f0;
   margin-top: 1rem;
@@ -104,6 +128,7 @@ body {
 }
 
 .home-about-description {
+  margin-bottom: 130px;
   color: white;
   text-align: left;
 }
@@ -115,7 +140,8 @@ body {
 }
 
 .home-about-body {
-  font-size: 1.2em;
+  margin-top: 30px;
+  font-size: 1.6em;
   color: #dcdcdc;
   line-height: 1.7;
 }

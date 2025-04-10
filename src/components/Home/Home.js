@@ -22,6 +22,7 @@ function Home() {
               </h1>
               <div className="typing-container">
                 <h2 className="typing-text">
+                <br></br>
                   <Typewriter
                     words={['Back-end Developer.', 'Java | Spring | React']}
                     loop={0}
@@ -33,13 +34,23 @@ function Home() {
                   />
                 </h2>
               </div>
+              <div className="button-wrapper">
+                  <a href="#projetos" className="custom-button">
+                    Projetos
+                  </a>
+                  <a href="#contato" className="custom-button">
+                    Contato
+                  </a>
+              </div>
             </Col>
             <Col md={5}>
               <img src={homeLogo} alt="home pic" className="img-fluid" />
             </Col>
           </Row>
         </Container>
+
         <div className="scroll-down-indicator">
+        <br></br>
           <FaChevronDown />
         </div>
       </Container>
