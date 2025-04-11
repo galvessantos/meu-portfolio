@@ -7,11 +7,11 @@ import { FaChevronDown } from "react-icons/fa";
 
 function Home() {
   return (
-    <section className="home-wrapper">
+    <section className="home-wrapper" id="home">
       <Container
         fluid
         className="home-section"
-        id="home"
+        id="home-section"
       >
         <Container className="home-content">
           <Row>
