@@ -1,8 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import aboutImg from "../../assets/about.svg";
+import { Container } from "react-bootstrap";
 
 function Home2() {
+  const skills = [
+    "Java", "Spring", "React.js", "Angular", 
+    "Git", "Metodologias Ágeis", "PostgreSQL", "MongoDB"
+  ];
+
   return (
     <Container
       fluid
@@ -10,24 +14,35 @@ function Home2() {
       id="about"
     >
       <Container>
-        <Row className="align-items-center justify-content-center">
-          <Col md={4} className="text-center text-md-start">
-            <img src={aboutImg} alt="About Gabriel" className="img-fluid" />
-          </Col>
+        <div className="about-card">
+          <div className="about-header">
+            <h1>SOBRE MIM</h1>
+          </div>
           
-          <Col md={8} className="home-about-description">
-            <h1>
-              <span className="purple">SOBRE</span> MIM
-            </h1>
-            <p className="home-about-body">
-              Meu nome é Gabriel Alves, sou um Desenvolvedor Back-end que mora em Sorocaba, São Paulo - Brasil. No momento, sou estudante de Ciência da Computação 💻.
-              <br /><br />
-              Possuo experiência com <b className="purple">Java, Spring, React.js, Angular, Git e Metodologias Ágeis</b>.
-              <br /><br />
-              Meu principal interesse é na construção de novos <b className="purple">Produtos e Aplicações</b>, aprimorando minhas habilidades por meio de novos desafios.
-            </p>
-          </Col>
-        </Row>
+          <div className="about-content">
+            <div className="profile-card">
+              <div className="profile-avatar">
+                👨‍💻
+              </div>
+              <div className="profile-name">Gabriel Alves</div>
+              <div className="profile-title">Back-end Developer</div>
+            </div>
+            
+            <div className="about-text">
+              <p>
+                Meu nome é Gabriel Alves, sou um <span className="highlight">Desenvolvedor Back-end</span> que mora em Sorocaba, São Paulo. Atualmente cursando <span className="highlight">Ciência da Computação</span>.
+              </p>
+              
+              <p>
+                Tenho sólida experiência em <span className="highlight">Java e Spring Boot</span>, e venho ampliando meu repertório através de bootcamps e projetos <span className="highlight">Full-stack</span>, explorando tecnologias como <span className="highlight">React.js e Angular</span>.
+              </p>
+              
+              <p>
+                Meu principal interesse é na construção de <span className="highlight">Produtos e Aplicações</span> robustas, sempre buscando aprimorar minhas habilidades tanto no back-end quanto no front-end através de novos desafios.
+              </p>
+            </div>
+          </div>
+        </div>
       </Container>
     </Container>
   );
