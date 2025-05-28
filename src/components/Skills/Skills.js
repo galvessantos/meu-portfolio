@@ -44,19 +44,6 @@ function Skills() {
             </div>
           ))}
         </div>
-
-        <div className="methodologies-section">
-          <h2 className="methodologies-title">
-            <span className="highlight-word">Metodologias</span> & Práticas
-          </h2>
-          <div className="methodologies-grid">
-            {methodologies.map((methodology, index) => (
-              <div key={index} className="methodology-card">
-                {methodology}
-              </div>
-            ))}
-          </div>
-        </div>
       </Container>
     </Container>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./components/Home/Home";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
 import "./style.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Home />
         <Skills />
         <Projects />
+        <Contact />
       </div>
     </div>
   );

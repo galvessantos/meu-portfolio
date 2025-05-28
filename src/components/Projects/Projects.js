@@ -39,7 +39,7 @@ function Projects() {
     {
       id: 4,
       title: "Gerenciador de Filmes",
-      description: "Site de listagem de filmes com cadastro, edição, exclusão e visualização de detalhes. Desenvolvido com React, Node.js, TailwindCSS, Vite e MySQL. Projeto com foco em usabilidade e CRUD completo.",
+      description: "Este projeto consiste em um site de listagem de filmes, onde é possível cadastrar novos filmes, visualizar detalhes, editar e excluir o cadastro desses filmes e navegar por uma lista de filmes já cadastrados. Desenvolvido com as tecnologias React, Node.js, TailwindCSS, Vite e MySQL, o site oferece uma experiência de uso simples e eficiente.",
       technologies: ["Node.js", "React", "TypeScript", "Vite", "MySQL"],
       image: Filmes,
       deployUrl: null,
@@ -47,9 +47,9 @@ function Projects() {
     },
     {
       id: 5,
-      title: "Estação Meteorológica IoT",
+      title: "Estação Meteorológica",
       description: "Sistema IoT completo para captação e monitoramento de dados meteorológicos reais. Desenvolvido como projeto acadêmico, integra hardware Arduino com sensores para coleta de temperatura, umidade e precipitação, enviando dados para aplicação web que apresenta e armazena as informações em banco de dados.",
-      technologies: ["Java", "Hibernate", "Arduino", "HTML/CSS", "JavaScript", "SQL Server"],
+      technologies: ["Java", "Hibernate", "Arduino", "HTML", "CSS", "JavaScript", "SQL Server"],
       image: Sensor,
       deployUrl: null,
       githubUrl: "https://github.com/galvessantos/projeto-sensor-chuva-java-sql-javascript"
