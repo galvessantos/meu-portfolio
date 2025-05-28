@@ -25,12 +25,12 @@ function Home2() {
                 👨‍💻
               </div>
               <div className="profile-name">Gabriel Alves</div>
-              <div className="profile-title">Back-end Developer</div>
+              <div className="profile-title">Software Developer</div>
             </div>
             
             <div className="about-text">
               <p>
-                Meu nome é Gabriel Alves, sou um <span className="highlight">Desenvolvedor Back-end</span> que mora em Sorocaba, São Paulo. Atualmente cursando <span className="highlight">Ciência da Computação</span>.
+                Meu nome é Gabriel Alves, sou um <span className="highlight">Desenvolvedor</span> que mora em Sorocaba, São Paulo. Atualmente cursando <span className="highlight">Ciência da Computação</span>.
               </p>
               
               <p>

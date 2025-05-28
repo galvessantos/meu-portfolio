@@ -24,7 +24,7 @@ function Home() {
                 <h2 className="typing-text">
                 <br></br>
                   <Typewriter
-                    words={['Back-end Developer.', 'Java | Spring | React']}
+                    words={['Software Developer.', 'Java | Spring | Angular']}
                     loop={0}
                     cursor
                     cursorStyle="|"

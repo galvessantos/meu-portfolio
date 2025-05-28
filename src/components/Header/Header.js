@@ -16,15 +16,26 @@ function Header() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+  const element = document.getElementById(sectionId);
+  if (element) {
+    if (sectionId === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      const elementTop = element.offsetTop;
+      const headerHeight = 80;
+      const offset = -170; 
+      
+      window.scrollTo({
+        top: elementTop - headerHeight - offset,
+        behavior: 'smooth'
       });
     }
-    setIsMobileMenuOpen(false); 
-  };
+  }
+  setIsMobileMenuOpen(false);
+};
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
