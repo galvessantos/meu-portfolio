@@ -315,7 +315,7 @@ html {
   background: rgba(12, 10, 15, 0.98);
   backdrop-filter: blur(30px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  transform: translateY(-100%);
+  transform: translateY(0);
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -323,7 +323,7 @@ html {
 }
 
 .mobile-menu.open {
-  transform: translateY(-100%);
+  transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
@@ -1583,6 +1583,19 @@ html {
     font-size: 1.5em;
   }
 
+  .home-section {
+    margin-top: 0;
+    min-height: calc(100vh - 70px);
+  }
+  
+  .heading {
+    font-size: 2.2em;
+  }
+  
+  .typing-text {
+    font-size: 2em;
+  }
+
   .button-wrapper {
     display: flex;
     flex-direction: column;
@@ -1668,6 +1681,26 @@ html {
   .tech-icon {
     font-size: 3em;
   }
+
+  .scroll-down-indicator {
+    bottom: 100px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 2rem;
+  }
+
+  .home-content .row {
+    flex-direction: column; 
+  }
+  
+  .home-content .row > div:last-child {
+    margin-top: 30px; 
+  }
+  
+  .img-fluid {
+    max-width: 80%; 
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1692,6 +1725,23 @@ html {
   .mobile-nav-link {
     font-size: 1.1em;
     padding: 12px 15px;
+  }
+
+  .heading {
+    font-size: 1.8em;
+  }
+  
+  .typing-text {
+    font-size: 1.6em;
+  }
+  
+  .img-fluid {
+    max-width: 70%;
+  }
+  
+  .home-content .row > div:last-child {
+    margin-top: 20px; 
+    text-align: center; 
   }
 
   .contact-header h1 {
@@ -1723,5 +1773,28 @@ html {
   
   .project-content {
     padding: 20px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  
+  .tech-card {
+    height: 120px;
+    padding: 20px 10px;
+  }
+  
+  .tech-icon {
+    font-size: 2.5em;
+  }
+  
+  .tech-name {
+    font-size: 0.9em;
+  }
+
+  .scroll-down-indicator {
+    bottom: -75px; 
+    font-size: 1.8rem;
   }
 }
