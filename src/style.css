@@ -1503,6 +1503,174 @@ html {
   animation: fadeIn 0.3s ease;
 }
 
+.resume-page {
+  min-height: 100vh;
+  padding: 100px 0 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.resume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  z-index: 10;
+}
+
+.resume-title {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.resume-title h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  background: linear-gradient(135deg, #c770f0, #6c63ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 5px;
+}
+
+.resume-title p {
+  color: #dcdcdc;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.back-button,
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(199, 112, 240, 0.2);
+}
+
+.download-button {
+  background: linear-gradient(135deg, #c770f0, #6c63ff);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #6c63ff, #c770f0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(199, 112, 240, 0.4);
+}
+
+.download-button:hover::before {
+  opacity: 1;
+}
+
+.download-button span,
+.back-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.pdf-viewer {
+  background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.pdf-viewer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(199, 112, 240, 0.05), rgba(108, 99, 255, 0.05));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pdf-viewer iframe {
+  position: relative;
+  z-index: 2;
+  background: white;
+  display: block;
+  width: 100%;
+}
+
+.pdf-fallback {
+  text-align: center;
+  color: #dcdcdc;
+  font-size: 1.1em;
+}
+
+.download-link {
+  background: none;
+  border: none;
+  color: #c770f0;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 10px;
+  font-family: "Raleway", sans-serif;
+}
+
+.download-link:hover {
+  color: #6c63ff;
+}
+
 @media (max-width: 992px) {
   .nav-desktop,
   .header-cta {
@@ -1672,6 +1840,26 @@ html {
     max-width: 80%; 
     height: auto;
   }
+
+    .resume-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .resume-title h1 {
+    font-size: 2em;
+  }
+  
+  .back-button,
+  .download-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .pdf-viewer iframe {
+    height: 800px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1767,5 +1955,21 @@ html {
   .scroll-down-indicator {
     bottom: -75px; 
     font-size: 1.8rem;
+  }
+
+  .resume-container {
+    padding: 0 15px;
+  }
+  
+  .resume-title h1 {
+    font-size: 1.8em;
+  }
+  
+  .pdf-viewer {
+    padding: 15px;
+  }
+  
+  .pdf-viewer iframe {
+    height: 500px;
   }
 }

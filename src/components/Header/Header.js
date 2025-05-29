@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,43 +19,73 @@ function Header() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    if (sectionId === 'home') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          if (sectionId === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const elementTop = element.offsetTop;
+            const headerHeight = 80;
+            const offset = -170;
+            window.scrollTo({
+              top: elementTop - headerHeight - offset,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }, 100);
     } else {
-      const elementTop = element.offsetTop;
-      const headerHeight = 80;
-      const offset = -170; 
-      
-      window.scrollTo({
-        top: elementTop - headerHeight - offset,
-        behavior: 'smooth'
-      });
+      const element = document.getElementById(sectionId);
+      if (element) {
+        if (sectionId === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const elementTop = element.offsetTop;
+          const headerHeight = 80;
+          const offset = -170;
+          window.scrollTo({
+            top: elementTop - headerHeight - offset,
+            behavior: 'smooth'
+          });
+        }
+      }
     }
-  }
-  setIsMobileMenuOpen(false);
-};
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigateToResume = () => {
+    navigate('/curriculo');
+    setIsMobileMenuOpen(false);
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Sobre', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projetos', id: 'projetos' },
-    { label: 'Contato', id: 'contato' }
+    { label: 'Home', id: 'home', type: 'scroll' },
+    { label: 'Sobre', id: 'about', type: 'scroll' },
+    { label: 'Skills', id: 'skills', type: 'scroll' },
+    { label: 'Projetos', id: 'projetos', type: 'scroll' },
+    { label: 'Currículo', id: 'curriculo', type: 'navigate' },
+    { label: 'Contato', id: 'contato', type: 'scroll' }
   ];
+
+  const handleNavClick = (item) => {
+    if (item.type === 'navigate') {
+      navigateToResume();
+    } else {
+      scrollToSection(item.id);
+    }
+  };
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="logo">
+        <div className="logo" onClick={() => navigate('/')}>
           <span className="logo-text">G</span>
         </div>
 
@@ -61,7 +94,7 @@ function Header() {
             {navItems.map((item, index) => (
               <li key={index} className="nav-item">
                 <button 
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className="nav-link"
                 >
                   {item.label}
@@ -95,7 +128,7 @@ function Header() {
             {navItems.map((item, index) => (
               <li key={index} className="mobile-nav-item">
                 <button 
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className="mobile-nav-link"
                 >
                   {item.label}
