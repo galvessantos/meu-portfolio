@@ -1523,6 +1523,7 @@ html {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+  margin-top: -150px;
   background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1669,6 +1670,127 @@ html {
 
 .download-link:hover {
   color: #6c63ff;
+}
+
+.mobile-pdf-actions {
+  background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-pdf-actions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(199, 112, 240, 0.05), rgba(108, 99, 255, 0.05));
+  pointer-events: none;
+}
+
+.pdf-preview {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.pdf-icon {
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: #c770f0;
+}
+
+.pdf-preview h3 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.pdf-preview p {
+  color: #dcdcdc;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.mobile-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.view-button,
+.mobile-download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 32px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+
+.view-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.view-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #c770f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(199, 112, 240, 0.2);
+}
+
+.mobile-download-button {
+  background: linear-gradient(135deg, #c770f0, #6c63ff);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #6c63ff, #c770f0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.mobile-download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(199, 112, 240, 0.4);
+}
+
+.mobile-download-button:hover::before {
+  opacity: 1;
+}
+
+.view-button span,
+.mobile-download-button span {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 992px) {
