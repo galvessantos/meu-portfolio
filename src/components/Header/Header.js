@@ -68,9 +68,7 @@ function Header() {
   const navItems = [
     { label: 'Home', id: 'home', type: 'scroll' },
     { label: 'Sobre', id: 'about', type: 'scroll' },
-    { label: 'Skills', id: 'skills', type: 'scroll' },
     { label: 'Projetos', id: 'projetos', type: 'scroll' },
-    { label: 'Currículo', id: 'curriculo', type: 'navigate' },
     { label: 'Contato', id: 'contato', type: 'scroll' }
   ];
 
@@ -85,10 +83,8 @@ function Header() {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="logo" onClick={() => navigate('/')}>
-          <span className="logo-text">G</span>
-        </div>
-
+        <div className="header-spacer"></div>
+        
         <nav className="nav-desktop">
           <ul className="nav-list">
             {navItems.map((item, index) => (
@@ -105,6 +101,12 @@ function Header() {
         </nav>
 
         <div className="header-cta">
+          <button 
+            onClick={navigateToResume}
+            className="cta-button secondary"
+          >
+            <span>Currículo</span>
+          </button>
           <button 
             onClick={() => scrollToSection('contato')}
             className="cta-button"
@@ -137,6 +139,12 @@ function Header() {
             ))}
           </ul>
           <div className="mobile-cta">
+            <button 
+              onClick={navigateToResume}
+              className="mobile-cta-button secondary"
+            >
+              Currículo
+            </button>
             <button 
               onClick={() => scrollToSection('contato')}
               className="mobile-cta-button"

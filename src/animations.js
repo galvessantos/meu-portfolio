@@ -258,33 +258,34 @@ class ScrollRevealManager {
       delay: 700
     });
 
-    ScrollReveal().reveal('.about-header', {
+    ScrollReveal().reveal('.about-main-header', {
       origin: 'top',
       duration: 1000,
       delay: 200
     });
 
-    ScrollReveal().reveal('.profile-card', {
+    ScrollReveal().reveal('.about-profile-card', {
       origin: 'left',
       duration: 1200,
       delay: 400
     });
 
-    ScrollReveal().reveal('.about-text', {
+    ScrollReveal().reveal('.about-skills-card', {
       origin: 'right',
       duration: 1200,
       delay: 600
     });
 
-    ScrollReveal().reveal('.skills-header', {
+    ScrollReveal().reveal('.skills-header-separated', {
       origin: 'top',
-      duration: 1000
+      duration: 1000,
+      delay: 800
     });
 
     ScrollReveal().reveal('.tech-card', {
       origin: 'bottom',
       duration: 800,
-      delay: 200,
+      delay: 1000,
       interval: 100
     });
 

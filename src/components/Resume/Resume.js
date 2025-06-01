@@ -40,48 +40,65 @@ function Resume() {
       <div className="resume-page">
         <Container className="resume-container">
           
-          <div className="resume-header">
-            <button className="back-button" onClick={handleBack}>
-              <FaArrowLeft />
-              <span>Voltar</span>
-            </button>
-            
-            <div className="resume-title">
-              <h1>Currículo</h1>
-              <p>Gabriel Alves Santos</p>
-            </div>
-            
-            <button className="download-button" onClick={handleDownload}>
-              <FaDownload />
-              <span>Download PDF</span>
-            </button>
-          </div>
-
           {!isMobile ? (
-            <div className="pdf-viewer">
-              <iframe
-                src="/cv-gabriel-alves.pdf#zoom=100"
-                width="100%"
-                height="1000px"
-                title="Currículo Gabriel Alves"
-                style={{
-                  border: 'none',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 30px rgba(199, 112, 240, 0.2)',
-                  backgroundColor: 'white'
-                }}
-              />
-            </div>
+            <>
+              <div className="resume-header">
+                <button className="back-button" onClick={handleBack}>
+                  <FaArrowLeft />
+                  <span>Voltar</span>
+                </button>
+                
+                <div className="resume-title">
+                  <h1>Currículo</h1>
+                  <p>Gabriel Alves Santos</p>
+                </div>
+                
+                <button className="download-button" onClick={handleDownload}>
+                  <FaDownload />
+                  <span>Download PDF</span>
+                </button>
+              </div>
+
+              <div className="pdf-viewer">
+                <iframe
+                  src="/cv-gabriel-alves.pdf#zoom=100"
+                  width="100%"
+                  height="1000px"
+                  title="Currículo Gabriel Alves"
+                  style={{
+                    border: 'none',
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 30px rgba(199, 112, 240, 0.2)',
+                    backgroundColor: 'white'
+                  }}
+                />
+              </div>
+
+              <div className="pdf-fallback">
+                <p>Não consegue visualizar o PDF? 
+                  <button className="download-link" onClick={handleDownload}>
+                    Clique aqui para fazer o download
+                  </button>
+                </p>
+              </div>
+            </>
           ) : (
-            <div className="mobile-pdf-actions">
-              <div className="pdf-preview">
+            <>
+              <div className="mobile-resume-header">
+                <button className="mobile-back-button" onClick={handleBack}>
+                  <FaArrowLeft />
+                </button>
+                <h1 className="mobile-resume-title">Currículo</h1>
+              </div>
+
+              <div className="mobile-pdf-preview">
                 <div className="pdf-icon">📄</div>
-                <h3>Currículo - Gabriel Alves</h3>
+                <h2>Gabriel Alves Santos</h2>
                 <p>Visualize ou faça o download do meu currículo completo</p>
               </div>
               
-              <div className="mobile-buttons">
-                <button className="view-button" onClick={handleViewPDF}>
+              <div className="mobile-action-buttons">
+                <button className="mobile-view-button" onClick={handleViewPDF}>
                   <FaEye />
                   <span>Visualizar PDF</span>
                 </button>
@@ -91,17 +108,7 @@ function Resume() {
                   <span>Download PDF</span>
                 </button>
               </div>
-            </div>
-          )}
-
-          {!isMobile && (
-            <div className="pdf-fallback">
-              <p>Não consegue visualizar o PDF? 
-                <button className="download-link" onClick={handleDownload}>
-                  Clique aqui para fazer o download
-                </button>
-              </p>
-            </div>
+            </>
           )}
 
         </Container>

@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
+import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Resume from "./components/Resume/Resume";
 import ScrollReveal from 'scrollreveal'; 
@@ -21,7 +22,7 @@ function App() {
       <Header />
       <div className="App" style={{ position: "relative", minHeight: "100vh" }}>
         <Home />
-        <Skills />
+        <About />
         <Projects />
         <Contact />
       </div>

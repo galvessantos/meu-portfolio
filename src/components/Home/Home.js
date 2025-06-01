@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Typewriter } from "react-simple-typewriter";
-import Home2 from "./Home2";
 import homeLogo from "../../assets/home-main.svg";
 import { FaChevronDown } from "react-icons/fa";
 
@@ -16,7 +15,7 @@ function Home() {
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">
-              <h1 className="heading">Olá! <span className="wave">👋🏻</span></h1>
+              <h1 className="heading">Olá! <span className="wave">👋🏽</span></h1>
               <h1 className="heading">
                 Meu nome é <strong className="main-name">Gabriel Alves</strong>.
               </h1>
@@ -54,7 +53,6 @@ function Home() {
           <FaChevronDown />
         </div>
       </Container>
-      <Home2 />
     </section>
   );
 }
