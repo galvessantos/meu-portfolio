@@ -50,7 +50,6 @@ function Resume() {
                 
                 <div className="resume-title">
                   <h1>Currículo</h1>
-                  <p>Gabriel Alves Santos</p>
                 </div>
                 
                 <button className="download-button" onClick={handleDownload}>
@@ -93,7 +92,7 @@ function Resume() {
 
               <div className="mobile-pdf-preview">
                 <div className="pdf-icon">📄</div>
-                <h2>Gabriel Alves Santos</h2>
+                <h2>CV - Gabriel Alves</h2>
                 <p>Visualize ou faça o download do meu currículo completo</p>
               </div>
               
