@@ -4,17 +4,20 @@ import { Container } from "react-bootstrap";
 function About() {
   const technologies = [
     { name: "Java", icon: "☕" },
-    { name: "Spring", icon: "🍃" },
-    { name: "React.js", icon: "⚛️" },
+    { name: "Spring Boot", icon: "🌱" },
     { name: "Angular", icon: "🅰️" },
-    { name: "JavaScript", icon: "🟨" },
-    { name: "TypeScript", icon: "🔷" },
-    { name: "PostgreSQL", icon: "🐘" },
+    { name: "REST APIs", icon: "🔗" },
+    { name: "Swagger", icon: "📄" },
+    { name: "Postman", icon: "📬" },
     { name: "MySQL", icon: "🐬" },
+    { name: "PostgreSQL", icon: "🐘" },
     { name: "Git", icon: "📝" },
-    { name: "Docker", icon: "🐋" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "HTML/CSS", icon: "🎨" }
+    { name: "GitHub", icon: "🐱" },
+    { name: "JUnit 5", icon: "🧪" },
+    { name: "Mockito", icon: "🎭" },
+    { name: "SonarQube", icon: "🔍" },
+    { name: "Scrum", icon: "📆" },
+    { name: "Kanban", icon: "📋" }
   ];
 
   return (
@@ -32,25 +35,18 @@ function About() {
 
         <div className="about-profile-card">
           <div className="about-content">
-            <div className="profile-card">
-              <div className="profile-avatar">
-                👨‍💻
-              </div>
-              <div className="profile-name">Gabriel Alves</div>
-              <div className="profile-title">Software Developer</div>
-            </div>
             
             <div className="about-text">
               <p>
-                Meu nome é Gabriel Alves, sou um <span className="highlight">Desenvolvedor de Software</span> que mora em Sorocaba, São Paulo. Atualmente cursando <span className="highlight">Ciência da Computação</span>.
+                Olá! meu nome é Gabriel Alves, sou <span className="highlight">Estagiário de Desenvolvimento de Software</span> na <span className="highlight">Montreal</span>, referência em tecnologia e inovação no Brasil. Atualmente, curso <span className="highlight">Ciência da Computação</span> e sou apaixonado por desenvolvimento de software, sempre em busca de aprender e aprimorar minhas habilidades.
+              </p>
+
+              <p>
+                Tenho experiência com projetos full-stack, incluindo o desenvolvimento de um sistema de gestão para <span className="highlight">recuperação de garantias veiculares</span>, com módulos de consulta, apreensão, perfil de usuários e relatórios. 
               </p>
               
               <p>
-                Tenho sólida experiência em <span className="highlight">Java e Spring Boot</span>, e venho ampliando meu repertório através de bootcamps e projetos <span className="highlight">Full-stack</span>, explorando tecnologias como <span className="highlight">React.js e Angular</span>.
-              </p>
-              
-              <p>
-                Meu principal interesse é na construção de <span className="highlight">Produtos e Aplicações</span> robustas, sempre buscando aprimorar minhas habilidades tanto no back-end quanto no front-end através de novos desafios.
+                Tenho sólida experiência em <span className="highlight">Java e Spring Boot</span>, e venho ampliando meu repertório através de bootcamps e projetos <span className="highlight">Full-stack</span>, explorando tecnologias como <span className="highlight">Angular</span>.
               </p>
             </div>
           </div>

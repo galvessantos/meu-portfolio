@@ -78,8 +78,7 @@ function Projects() {
           </h1>
           <p>
             Aqui estão alguns dos principais projetos que desenvolvi, 
-            demonstrando minhas habilidades em desenvolvimento full-stack 
-            e back-end com diferentes tecnologias.
+            demonstrando minhas habilidades em desenvolvimento.
           </p>
         </div>
 

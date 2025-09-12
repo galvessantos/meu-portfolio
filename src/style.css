@@ -509,9 +509,9 @@ html {
 
 .home-about-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 100vh; 
   background: transparent;
-  padding: 100px 0;
+  padding: 0; 
   z-index: 1;
   display: flex;
   align-items: center;
@@ -546,11 +546,15 @@ html {
   width: 100%;
   max-width: 1200px;
   padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80vh;
 }
 
 .about-main-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .about-main-header h1 {
@@ -580,62 +584,13 @@ html {
   border-radius: 2px;
 }
 
-.about-profile-card {
-  margin-bottom: 100px;
-  position: relative;
-}
-
-.about-profile-card .about-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.profile-card {
-  background: linear-gradient(135deg, rgba(199, 112, 240, 0.15), rgba(108, 99, 255, 0.15));
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  position: relative;
-}
-
-.profile-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #c770f0, #6c63ff);
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3em;
-  color: white;
-  box-shadow: 0 10px 30px rgba(199, 112, 240, 0.3);
-}
-
-.profile-name {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.profile-title {
-  color: #c770f0;
-  font-size: 1.1em;
-  font-weight: 500;
-}
-
 .about-text {
   color: #fff;
 }
 
 .about-text p {
-  font-size: 1.1em;
-  line-height: 1.9;
+  font-size: 1.3em;
+  line-height: 3.5;
   margin-bottom: 25px;
   color: #dcdcdc;
 }
@@ -656,6 +611,7 @@ html {
 
 .skills-header-separated {
   text-align: center;
+  margin-top: 200px;
   margin-bottom: 60px;
 }
 

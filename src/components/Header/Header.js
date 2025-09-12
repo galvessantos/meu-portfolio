@@ -26,10 +26,18 @@ function Header() {
         if (element) {
           if (sectionId === 'home') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else if (sectionId === 'about') {
+            const elementTop = element.offsetTop;
+            const headerHeight = 80;
+            const aboutOffset = -300;
+            window.scrollTo({
+              top: elementTop - headerHeight - aboutOffset,
+              behavior: 'smooth'
+            });
           } else {
             const elementTop = element.offsetTop;
             const headerHeight = 80;
-            const offset = -170;
+            const offset = -150;
             window.scrollTo({
               top: elementTop - headerHeight - offset,
               behavior: 'smooth'
@@ -42,6 +50,14 @@ function Header() {
       if (element) {
         if (sectionId === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (sectionId === 'about') {
+          const elementTop = element.offsetTop;
+          const headerHeight = 80;
+          const aboutOffset = -80; 
+          window.scrollTo({
+            top: elementTop - headerHeight - aboutOffset,
+            behavior: 'smooth'
+          });
         } else {
           const elementTop = element.offsetTop;
           const headerHeight = 80;
