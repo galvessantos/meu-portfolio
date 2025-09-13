@@ -1705,6 +1705,45 @@ html {
   z-index: 1;
 }
 
+/* ===== PERFORMANCE FIXES ===== */
+@media (max-width: 1024px) {
+  .parallax-stars {
+    display: none !important;
+  }
+  
+  .header,
+  .tech-card,
+  .project-card,
+  .contact-info,
+  .contact-form {
+    backdrop-filter: blur(5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .stars:before,
+  .stars:after {
+    display: none !important;
+  }
+  
+  .home-about-section:before,
+  .home-about-section:after,
+  .projects-section:before,
+  .projects-section:after,
+  .contact-section:before,
+  .contact-section:after {
+    display: none !important;
+  }
+}
+
+/* Hardware acceleration para elementos que se movem */
+.stars-layer,
+.tech-card,
+.project-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 @media (max-width: 992px) {
   .nav-desktop,
   .header-cta {

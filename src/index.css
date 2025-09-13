@@ -25,30 +25,21 @@ html, body {
 
 .stars:before,
 .stars:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(2px 2px at 20px 30px, white, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40px 70px, white, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 450px 280px, white, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 500px 500px;
-  opacity: 0.3;
-  animation: twinkle 8s linear infinite;
-}
-
-.stars:after {
-  animation: twinkle 12s linear infinite;
-  animation-delay: 4s;
+  display: none;
 }
 
 @keyframes twinkle {
-  0% { background-position: 0 0; }
-  100% { background-position: 500px 500px; }
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-200px) translateY(-200px); }
+}
+
+.stars-layer {
+  will-change: transform;
+  transform: translateZ(0); 
+}
+
+.header {
+  backdrop-filter: blur(10px); 
 }
 
 

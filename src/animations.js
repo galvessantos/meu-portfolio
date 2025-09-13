@@ -188,19 +188,24 @@ class ParallaxStars {
     document.head.appendChild(style);
   }
 
-  bindEvents() {
-    let ticking = false;
+bindEvents() {
+  let ticking = false;
+  let lastScrollTime = 0;
+  
+  window.addEventListener('scroll', () => {
+    const now = Date.now();
+    if (now - lastScrollTime < 16) return; 
+    lastScrollTime = now;
     
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          this.updateParallax();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        this.updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
 
   updateParallax() {
     const scrolled = window.pageYOffset;
@@ -215,107 +220,39 @@ class ParallaxStars {
 }
 
 class ScrollRevealManager {
+  constructor() {
+    this.initialized = false;
+  }
+
   init() {
-    if (typeof ScrollReveal === 'undefined') {
-      console.warn('ScrollReveal não está carregado');
+    if (typeof ScrollReveal === 'undefined' || this.initialized) {
       return;
     }
+    this.initialized = true;
 
-    ScrollReveal().reveal('.reveal', {
-      duration: 1000,
-      distance: '60px',
-      easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
+    const sr = ScrollReveal({
+      duration: 600,
+      distance: '30px',
+      easing: 'ease-out',
       reset: false
     });
 
-    ScrollReveal().reveal('.header', {
+    sr.reveal('.header, .heading, .typing-text', {
       origin: 'top',
-      duration: 1000,
-      delay: 500
-    });
-
-    ScrollReveal().reveal('.heading', {
-      origin: 'left',
-      duration: 1200,
-      delay: 600
-    });
-
-    ScrollReveal().reveal('.typing-text', {
-      origin: 'left',
-      duration: 1200,
-      delay: 800
-    });
-
-    ScrollReveal().reveal('.button-wrapper', {
-      origin: 'bottom',
-      duration: 1000,
-      delay: 1000
-    });
-
-    ScrollReveal().reveal('.img-fluid', {
-      origin: 'right',
-      duration: 1200,
-      delay: 700
-    });
-
-    ScrollReveal().reveal('.about-main-header', {
-      origin: 'top',
-      duration: 1000,
-      delay: 200
-    });
-
-    ScrollReveal().reveal('.about-profile-card', {
-      origin: 'left',
-      duration: 1200,
-      delay: 400
-    });
-
-    ScrollReveal().reveal('.about-skills-card', {
-      origin: 'right',
-      duration: 1200,
-      delay: 600
-    });
-
-    ScrollReveal().reveal('.skills-header-separated', {
-      origin: 'top',
-      duration: 1000,
-      delay: 800
-    });
-
-    ScrollReveal().reveal('.tech-card', {
-      origin: 'bottom',
-      duration: 800,
-      delay: 1000,
+      delay: 200,
       interval: 100
     });
 
-    ScrollReveal().reveal('.projects-header', {
-      origin: 'top',
-      duration: 1000
-    });
-
-    ScrollReveal().reveal('.project-card', {
+    sr.reveal('.tech-card', {
       origin: 'bottom',
-      duration: 1000,
+      delay: 300,
+      interval: 50
+    });
+
+    sr.reveal('.project-card', {
+      origin: 'bottom',
       delay: 200,
-      interval: 150
-    });
-
-    ScrollReveal().reveal('.contact-header', {
-      origin: 'top',
-      duration: 1000
-    });
-
-    ScrollReveal().reveal('.contact-info', {
-      origin: 'left',
-      duration: 1200,
-      delay: 300
-    });
-
-    ScrollReveal().reveal('.contact-form', {
-      origin: 'right',
-      duration: 1200,
-      delay: 500
+      interval: 80
     });
   }
 }
@@ -471,40 +408,10 @@ class HoverAnimations {
 
 class PulseAnimations {
   init() {
-    setInterval(() => {
-      this.pulseContactIcons();
-    }, 3000);
+    console.log('PulseAnimations desabilitado para melhor performance');
   }
 
   pulseContactIcons() {
-    const contactIcons = document.querySelectorAll('.contact-icon');
-    contactIcons.forEach((icon, index) => {
-      setTimeout(() => {
-        icon.style.animation = 'pulse-glow 0.8s ease-in-out';
-        setTimeout(() => {
-          icon.style.animation = '';
-        }, 800);
-      }, index * 200);
-    });
-
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes pulse-glow {
-        0%, 100% { 
-          transform: scale(1);
-          box-shadow: 0 5px 15px rgba(199, 112, 240, 0.3);
-        }
-        50% { 
-          transform: scale(1.1);
-          box-shadow: 0 8px 25px rgba(199, 112, 240, 0.6);
-        }
-      }
-    `;
-    
-    if (!document.querySelector('style[data-pulse]')) {
-      style.setAttribute('data-pulse', 'true');
-      document.head.appendChild(style);
-    }
   }
 }
 
