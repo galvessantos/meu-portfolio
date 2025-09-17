@@ -97,6 +97,9 @@ class LoadingManager {
 
 class ParallaxStars {
   constructor() {
+    if (window.innerWidth <= 1024) {
+      return;
+    }
     this.init();
   }
 
@@ -144,8 +147,9 @@ class ParallaxStars {
           radial-gradient(1px 1px at 130px 80px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 200px 200px;
-        animation: parallax-stars-1 20s linear infinite;
-        opacity: 0.4;
+        animation: parallax-stars-1 40s linear infinite;
+        opacity: 0.3;
+        will-change: transform;
       }
       
       .stars-layer-2 {
@@ -155,8 +159,9 @@ class ParallaxStars {
           radial-gradient(2px 2px at 120px 50px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 300px 300px;
-        animation: parallax-stars-2 25s linear infinite;
-        opacity: 0.3;
+        animation: parallax-stars-2 50s linear infinite;
+        opacity: 0.2;
+        will-change: transform;
       }
       
       .stars-layer-3 {
@@ -166,8 +171,9 @@ class ParallaxStars {
           radial-gradient(1px 1px at 240px 20px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 400px 400px;
-        animation: parallax-stars-3 30s linear infinite;
-        opacity: 0.2;
+        animation: parallax-stars-3 60s linear infinite;
+        opacity: 0.15;
+        will-change: transform;
       }
       
       @keyframes parallax-stars-1 {
@@ -194,7 +200,7 @@ bindEvents() {
   
   window.addEventListener('scroll', () => {
     const now = Date.now();
-    if (now - lastScrollTime < 16) return; 
+    if (now - lastScrollTime < 32) return;
     lastScrollTime = now;
     
     if (!ticking) {
@@ -204,7 +210,7 @@ bindEvents() {
       });
       ticking = true;
     }
-  });
+  }, { passive: true });
 }
 
   updateParallax() {
@@ -230,29 +236,59 @@ class ScrollRevealManager {
     }
     this.initialized = true;
 
+    if ('IntersectionObserver' in window) {
+      this.useIntersectionObserver();
+      return;
+    }
+
     const sr = ScrollReveal({
-      duration: 600,
-      distance: '30px',
+      duration: 400,
+      distance: '20px',
       easing: 'ease-out',
-      reset: false
+      reset: false,
+      mobile: false
     });
 
     sr.reveal('.header, .heading, .typing-text', {
       origin: 'top',
-      delay: 200,
-      interval: 100
+      delay: 100,
+      interval: 50
     });
 
     sr.reveal('.tech-card', {
       origin: 'bottom',
-      delay: 300,
-      interval: 50
+      delay: 100,
+      interval: 30
     });
 
     sr.reveal('.project-card', {
       origin: 'bottom',
-      delay: 200,
-      interval: 80
+      delay: 100,
+      interval: 40
+    });
+  }
+
+  useIntersectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    document.querySelectorAll('.tech-card, .project-card, .heading').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      observer.observe(el);
     });
   }
 }
@@ -353,6 +389,9 @@ class SmoothScrollManager {
 
 class HoverAnimations {
   init() {
+    if ('ontouchstart' in window || window.innerWidth <= 768) {
+      return;
+    }
     this.techCardsHover();
     this.projectCardsHover();
     this.socialIconsHover();
@@ -361,13 +400,18 @@ class HoverAnimations {
   techCardsHover() {
     const techCards = document.querySelectorAll('.tech-card');
     techCards.forEach(card => {
+      let isHovering = false;
+      
       card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-15px) scale(1.05)';
-        card.style.boxShadow = '0 25px 50px rgba(199, 112, 240, 0.3)';
+        if (isHovering) return;
+        isHovering = true;
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 15px 30px rgba(199, 112, 240, 0.2)';
       });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
+        isHovering = false;
+        card.style.transform = 'translateY(0)';
         card.style.boxShadow = '';
       });
     });

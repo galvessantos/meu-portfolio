@@ -41,6 +41,11 @@ html {
   50% { transform: rotate(10deg); }
 }
 
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 @keyframes bounce {
   0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
   40% { transform: translateX(-50%) translateY(-10px); }
@@ -100,18 +105,21 @@ html {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(12, 10, 15, 0.8);
-  backdrop-filter: blur(20px);
+  background: rgba(12, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   padding: 15px 0;
+  will-change: transform;
 }
 
 .header.scrolled {
-  background: rgba(12, 10, 15, 0.95);
-  backdrop-filter: blur(30px);
+  background: rgba(12, 10, 15, 0.98);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(199, 112, 240, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
 }
 
@@ -649,12 +657,13 @@ html {
 
 .tech-card {
   background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 40px 20px;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
   height: 160px;
@@ -662,6 +671,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .tech-card::before {
@@ -677,11 +688,10 @@ html {
 }
 
 .tech-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(199, 112, 240, 0.5);
+  transform: translateY(-8px) translateZ(0);
+  border-color: rgba(199, 112, 240, 0.4);
   box-shadow: 
-    0 20px 40px rgba(199, 112, 240, 0.2),
-    0 0 40px rgba(108, 99, 255, 0.1);
+    0 12px 24px rgba(199, 112, 240, 0.15);
 }
 
 .tech-card:hover::before {
@@ -790,14 +800,17 @@ html {
 
 .project-card {
   background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .project-card::before {
@@ -813,11 +826,10 @@ html {
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(199, 112, 240, 0.5);
+  transform: translateY(-8px) translateZ(0);
+  border-color: rgba(199, 112, 240, 0.4);
   box-shadow: 
-    0 25px 50px rgba(199, 112, 240, 0.2),
-    0 0 50px rgba(108, 99, 255, 0.1);
+    0 15px 30px rgba(199, 112, 240, 0.15);
 }
 
 .project-card:hover::before {
@@ -1078,7 +1090,8 @@ html {
 
 .contact-info {
   background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 40px;
@@ -1199,7 +1212,8 @@ html {
 
 .contact-form {
   background: linear-gradient(135deg, rgba(199, 112, 240, 0.1), rgba(108, 99, 255, 0.1));
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 40px;
@@ -1705,7 +1719,6 @@ html {
   z-index: 1;
 }
 
-/* ===== PERFORMANCE FIXES ===== */
 @media (max-width: 1024px) {
   .parallax-stars {
     display: none !important;
@@ -1736,12 +1749,24 @@ html {
   }
 }
 
-/* Hardware acceleration para elementos que se movem */
-.stars-layer,
-.tech-card,
-.project-card {
+.stars-layer {
   will-change: transform;
   transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .stars-layer,
+  .parallax-stars {
+    display: none !important;
+  }
 }
 
 @media (max-width: 992px) {

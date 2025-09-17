@@ -43,7 +43,13 @@ function Home() {
               </div>
             </Col>
             <Col md={5}>
-              <img src={homeLogo} alt="home pic" className="img-fluid" />
+              <img 
+                src={homeLogo} 
+                alt="home pic" 
+                className="img-fluid"
+                loading="eager"
+                decoding="async"
+              />
             </Col>
           </Row>
         </Container>
