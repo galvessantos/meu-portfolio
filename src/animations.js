@@ -97,7 +97,6 @@ class LoadingManager {
 
 class ParallaxStars {
   constructor() {
-    // Desabilitar em dispositivos móveis e tablets
     if (window.innerWidth <= 1024) {
       return;
     }
@@ -148,8 +147,8 @@ class ParallaxStars {
           radial-gradient(1px 1px at 130px 80px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 200px 200px;
-        animation: parallax-stars-1 40s linear infinite; /* Reduzir velocidade */
-        opacity: 0.3; /* Reduzir opacidade */
+        animation: parallax-stars-1 40s linear infinite;
+        opacity: 0.3;
         will-change: transform;
       }
       
@@ -160,8 +159,8 @@ class ParallaxStars {
           radial-gradient(2px 2px at 120px 50px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 300px 300px;
-        animation: parallax-stars-2 50s linear infinite; /* Reduzir velocidade */
-        opacity: 0.2; /* Reduzir opacidade */
+        animation: parallax-stars-2 50s linear infinite;
+        opacity: 0.2;
         will-change: transform;
       }
       
@@ -172,8 +171,8 @@ class ParallaxStars {
           radial-gradient(1px 1px at 240px 20px, white, rgba(0,0,0,0));
         background-repeat: repeat;
         background-size: 400px 400px;
-        animation: parallax-stars-3 60s linear infinite; /* Reduzir velocidade */
-        opacity: 0.15; /* Reduzir opacidade */
+        animation: parallax-stars-3 60s linear infinite;
+        opacity: 0.15;
         will-change: transform;
       }
       
@@ -199,10 +198,9 @@ bindEvents() {
   let ticking = false;
   let lastScrollTime = 0;
   
-  // Usar passive listener para melhor performance
   window.addEventListener('scroll', () => {
     const now = Date.now();
-    if (now - lastScrollTime < 32) return; // Reduzir frequência para 30fps
+    if (now - lastScrollTime < 32) return;
     lastScrollTime = now;
     
     if (!ticking) {
@@ -238,18 +236,17 @@ class ScrollRevealManager {
     }
     this.initialized = true;
 
-    // Usar Intersection Observer para melhor performance
     if ('IntersectionObserver' in window) {
       this.useIntersectionObserver();
       return;
     }
 
     const sr = ScrollReveal({
-      duration: 400, // Reduzir duração
-      distance: '20px', // Reduzir distância
+      duration: 400,
+      distance: '20px',
       easing: 'ease-out',
       reset: false,
-      mobile: false // Desabilitar em mobile
+      mobile: false
     });
 
     sr.reveal('.header, .heading, .typing-text', {
@@ -287,7 +284,6 @@ class ScrollRevealManager {
       });
     }, options);
 
-    // Observar elementos
     document.querySelectorAll('.tech-card, .project-card, .heading').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
@@ -393,7 +389,6 @@ class SmoothScrollManager {
 
 class HoverAnimations {
   init() {
-    // Desabilitar hover animations em dispositivos móveis
     if ('ontouchstart' in window || window.innerWidth <= 768) {
       return;
     }

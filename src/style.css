@@ -41,7 +41,6 @@ html {
   50% { transform: rotate(10deg); }
 }
 
-/* Adicionar classe para elementos revelados */
 .revealed {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -1720,7 +1719,6 @@ html {
   z-index: 1;
 }
 
-/* ===== PERFORMANCE FIXES ===== */
 @media (max-width: 1024px) {
   .parallax-stars {
     display: none !important;
@@ -1751,7 +1749,6 @@ html {
   }
 }
 
-/* Hardware acceleration para elementos que se movem */
 .stars-layer {
   will-change: transform;
   transform: translateZ(0);
@@ -1759,7 +1756,6 @@ html {
   -webkit-backface-visibility: hidden;
 }
 
-/* Desabilitar animações complexas em prefer-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
