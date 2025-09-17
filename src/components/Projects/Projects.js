@@ -87,7 +87,12 @@ function Projects() {
             <div key={project.id} className="project-card">
               <div className="project-image">
                 {project.image ? (
-                  <img src={project.image} alt={project.title} />
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <div className="image-placeholder">
                     🖼️
